@@ -218,7 +218,7 @@ export function registerThemePluginTools(server: McpServer, wpClient: WordPressC
         description: (settings as { description?: string }).description || '',
         url: (settings as { url?: string }).url || '',
         home: (settings as { home?: string }).home || '',
-        gmt_offset: (settings as { gmt_offset?: number }).gmt_offset || 0,
+        gmt_offset: Number((settings as { gmt_offset?: unknown }).gmt_offset) || 0,
         timezone_string: (settings as { timezone_string?: string }).timezone_string || '',
         namespaces: (settings as { namespaces?: string[] }).namespaces || [],
       };
