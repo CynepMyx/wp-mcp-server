@@ -233,13 +233,13 @@ export class WordPressClient {
     return this.request<WPTag[]>('/tags');
   }
 
-  // Users
+  // Users — context=edit is required to return username, email and roles
   async getUsers() {
-    return this.request<WPUser[]>('/users');
+    return this.request<WPUser[]>('/users?context=edit');
   }
 
   async getCurrentUser() {
-    return this.request<WPUser>('/users/me');
+    return this.request<WPUser>('/users/me?context=edit');
   }
 
   // Menus (requires menus endpoint plugin or custom endpoint)
